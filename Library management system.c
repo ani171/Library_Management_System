@@ -191,7 +191,7 @@ system("cls");
 gotoxy(10,5);
 printf("Enter the Book ID to  delete:");
 scanf("%d",&d);
-fp=fopen("Record.txt","r");
+fp=fopen("Record.txt","rb+");
 rewind(fp);
 while(fread(&a,sizeof(a),1,fp)==1)
 {
@@ -220,7 +220,7 @@ gotoxy(10,9);
 printf("Do you want to delete it?(Y/N):");
 if(getch()=='y')
 {
-ft=fopen("Test.txt","w");  
+ft=fopen("Test.txt","wb+");  
 rewind(fp);
 while(fread(&a,sizeof(a),1,fp)==1)
 {
@@ -234,7 +234,7 @@ fclose(ft);
 fclose(fp);
 remove("Record.txt");
 rename("test.txt","Record.txt"); 
-fp=fopen("Record.txt","r");
+fp=fopen("Record.txt","rb+");
 if(findbook=='t')
 {
 gotoxy(10,10);
@@ -263,7 +263,7 @@ gotoxy(20,14);
 printf("\xDB\xDB\xDB\xB2 2. Search By Name");
 gotoxy( 15,20);
 printf("Enter Your Choice");
-fp=fopen("Record.txt","r"); 
+fp=fopen("Record.txt","rb+"); 
 rewind(fp);   
 switch(getch())
 {
@@ -293,7 +293,7 @@ printf("\xB2 Name:%s",a.name);gotoxy(47,10);printf("\xB2");
 gotoxy(20,11);
 printf("\xB2 Author:%s ",a.Author);gotoxy(47,11);printf("\xB2");
 gotoxy(20,12);
-printf("\xB2 Qantity:%d ",a.quantity);gotoxy(47,12);printf("\xB2"); gotoxy(47,11);printf("\xB2");
+printf("\xB2 Quantity:%d ",a.quantity);gotoxy(47,12);printf("\xB2"); gotoxy(47,11);printf("\xB2");
 gotoxy(20,13);
 printf("\xB2 Price:Rs.%.2f",a.Price);gotoxy(47,13);printf("\xB2");
 gotoxy(20,14);
@@ -411,8 +411,8 @@ printf("***Issue Book section***");
 gotoxy(10,6);
 printf("Enter the Book Id:");
 scanf("%d",&t);
-fp=fopen("Record.txt","r");
-fs=fopen("Issue.txt","a");
+fp=fopen("Record.txt","rb");
+fs=fopen("Issue.txt","ab+");
 if(checkid(t)==0) 
 {
 gotoxy(10,8);
@@ -545,7 +545,7 @@ while(another=='y')
 gotoxy(10,5);
 printf("Enter book id to remove:");
 scanf("%d",&b);
-fs=fopen("Issue.txt","r");
+fs=fopen("Issue.txt","rb+");
 while(fread(&a,sizeof(a),1,fs)==1)
 {
 if(a.id==b)
@@ -559,7 +559,7 @@ gotoxy(10,12);
 printf("Do You Want to Remove it?(Y/N)");
 if(getch()=='y')
 {
-fg=fopen("Issue1.txt","w");
+fg=fopen("Issue1.txt","wb+");
 rewind(fs);
 while(fread(&a,sizeof(a),1,fs)==1)
 {
