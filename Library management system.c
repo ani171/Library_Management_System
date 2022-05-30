@@ -9,7 +9,7 @@
 
 #define RETURNTIME 15
 
-char catagories[][15]={"Computer","Electronics","Literature","Electrical","Civil","Mechnaical","Architecture"};
+char catagories[][15]={"Computer","Electronics","Electrical","Civil","Mechnnical","Architecture"};
 void returnfunc(void);
 void mainmenu(void);
 void addbooks(void);
@@ -149,14 +149,11 @@ printf("\xDB\xDB\xDB\xDB\xB2 5. Mechanical");
 gotoxy(20,17);
 printf("\xDB\xDB\xDB\xDB\xB2 6. Architecture");
 gotoxy(20,19);
-printf("\xDB\xDB\xDB\xDB\xB2 7. Literature");
-gotoxy(20,21);
-printf("\xDB\xDB\xDB\xDB\xB2 8. Back to main menu");
-gotoxy(20,23);
+printf("\xDB\xDB\xDB\xDB\xB2 7. Back to main menu");
+gotoxy(20,22);
 printf("Enter your choice:");
 scanf("%d",&s);
-
-if(s==8)
+if(s==7)
 {
 mainmenu() ;
 }
