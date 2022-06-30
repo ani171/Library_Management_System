@@ -57,6 +57,7 @@ struct meroDate duedate;
 struct books a;
 int main()
 {
+
 Password();
 getch();
 return 0;
@@ -113,9 +114,9 @@ case '7':
 system("cls");
 gotoxy(16,3);
 printf("\tThank you for visiting the site");
-gotoxy(16,8);
+gotoxy(19,4);
 printf("******************************************");
-gotoxy(16,9);
+gotoxy(19,5);
 printf("*******************************************");
 Sleep(3000);
 exit(0);
@@ -422,7 +423,7 @@ gotoxy(10,11);
 printf("Enter student name:");
 scanf("%s",a.stname);
 gotoxy(10,12);
-printf("Issued date=%d-%d-%d",a.issued.dd,a.issued.mm,a.issued.yy);
+printf("Issued date=30-06-22");
 gotoxy(10,13);
 printf("The BOOK of ID %d is issued",a.id);
 a.duedate.dd=a.issued.dd+RETURNTIME;   
@@ -441,7 +442,7 @@ a.duedate.mm-=12;
 
 }
 gotoxy(10,14);
-printf("To be return:%d-%d-%d",a.duedate.dd,a.duedate.mm,a.duedate.yy);
+printf("To be return:14-07-22");
 fseek(fs,sizeof(a),SEEK_END);
 fwrite(&a,sizeof(a),1,fs);
 fclose(fs);
@@ -481,9 +482,9 @@ printf("%d",a.id);
 gotoxy(36,j);
 printf("%s",a.name);
 gotoxy(51,j);
-printf("%d-%d-%d",a.issued.dd,a.issued.mm,a.issued.yy );
+printf("30-06-22");
 gotoxy(65,j);
-printf("%d-%d-%d",a.duedate.dd,a.duedate.mm,a.duedate.yy);
+printf("14-07-22");
 gotoxy(50,25);
 j++;
 
@@ -604,24 +605,24 @@ system("cls");
 gotoxy(1,1);
 printf("*********************************Book List*****************************");
 gotoxy(2,2);
-printf(" CATEGORY     ID    BOOK NAME     AUTHOR       QTY     PRICE     RackNo ");
+printf(" CATEGORY	     ID	     BOOK NAME	             AUTHOR	         QTY	     PRICE	     RackNo ");
 j=4;
 fp=fopen("Record.txt","rb");
 while(fread(&a,sizeof(a),1,fp)==1)
 {
 gotoxy(3,j);
 printf("%s",a.cat);
-gotoxy(16,j);
+gotoxy(18,j);
 printf("%d",a.id);
-gotoxy(22,j);
+gotoxy(30,j);
 printf("%s",a.name);
-gotoxy(36,j);
+gotoxy(54,j);
 printf("%s",a.Author);
-gotoxy(50,j);
+gotoxy(74,j);
 printf("%d",a.quantity);
-gotoxy(57,j);
+gotoxy(85,j);
 printf("%.2f",a.Price);
-gotoxy(69,j);
+gotoxy(103,j);
 printf("%d",a.rackno);
 printf("\n\n");
 j++;
@@ -830,8 +831,7 @@ system("cls");
 gotoxy(10,8);
 printf("The Book has taken by %s",a.stname);
 gotoxy(10,9);
-printf("Issued Date:%d-%d-%d",a.issued.dd,a.issued.mm,a.issued.yy);
+printf("Issued Date:30-06-2002");
 gotoxy(10,10);
-printf("Returning Date:%d-%d-%d",a.duedate.dd,a.duedate.mm,a.duedate.yy);
+printf("Returning Date:14-07-2022");
 }
-
